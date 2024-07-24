@@ -1,0 +1,38 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stable Diffusion XL Web</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Stable Diffusion XL Image Generation</h1>
+        <input type="text" id="prompt" placeholder="Enter your prompt here">
+        <input type="number" id="guidance_scale" placeholder="Guidance Scale (default 7.5)" step="0.1" min="0">
+        <input type="number" id="num_inference_steps" placeholder="Number of Steps (default 50)" step="1" min="1">
+        <label>
+            <input type="checkbox" id="use_lora">
+            Use LoRA Model
+        </label>
+        <button onclick="generateImage()">Generate</button>
+
+        <h2>Or upload an image to base generation on:</h2>
+        <input type="file" id="file" accept="image/*">
+        <input type="text" id="upload_prompt" placeholder="Enter your prompt here">
+        <button onclick="uploadImage()">Upload and Generate</button>
+
+        <h2>Or inpaint an image:</h2>
+        <input type="file" id="inpaint_file" accept="image/*">
+        <input type="file" id="inpaint_mask" accept="image/*">
+        <input type="text" id="inpaint_prompt" placeholder="Enter your prompt here">
+        <button onclick="inpaintImage()">Inpaint</button>
+
+        <div id="result"></div>
+        <img id="generated-image" src="" alt="Generated Image" style="display: none;">
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
